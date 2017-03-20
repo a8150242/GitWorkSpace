@@ -1,4 +1,1 @@
-Gitis a distributed version control system.
-Gitis free software distributed under the GPL.
-Git has a mutableindex called stage.
-Git tracks changes of files.
+欢迎来到刘威的git空间，本站点回不时收集一些有意思的代码，博客，等等。
