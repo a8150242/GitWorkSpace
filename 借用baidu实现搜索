@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="Author" content="Fly">
+        <style type='text/css'>
+            *{ margin:0; padding:0; font-family:Microsoft yahei,serif;}
+            #box{width: 300px;margin: 100px auto;}
+            #search{width: 298px;height: 38px;border: 1px solid #ccc;font-size: 14px;text-indent:5px;color: #222;}
+            #list{width: 298px;border: 1px solid #ccc;border-top: none;display: none;}
+            #list li{height: 25px;line-height: 25px;text-indent: 10px;font-size: 14px;list-style:none;cursor: pointer;overflow: hidden;width: 100%;}
+            #list li a{display: block;width: 100%;height: 100%;color: #555;text-decoration:none;}
+            #list li.hover{background-color: #deecfe;}
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <input type="text" id="search"><ul id="list"><!--<li>111</li>--><!--<li>222</li>--><!--<li>333</li>--><!--<li>444</li>--><!--<li>555</li>--></ul>
+        </div>
+        <script>
+            var oInp = document.getElementById('search');
+            var oList = document.getElementById('list');
+            var index = -1 , startVal = '';
+
+            oInp.onkeyup = function (e) {
+                var val = this.value;
+                if (val){
+                    e = e || window.event;
+                    var keyCode = e.keyCode;
+                    if (keyCode === 38 || keyCode === 40){
+                        var aLi = oList.children;
+                        var length = aLi.length;
+                        if (keyCode===38){
+                            index --;
+                            if (index<-1)index = aLi.length -1;
+                        }else{
+                            index ++;
+                            if (index>length-1)index = -1;
+                        }
+                        for (var j=0;j<length;j++){
+                            aLi[j].className = '';
+                        }
+                        if (index !== -1){
+                            this.value = aLi[index].children[0].innerText;
+                            aLi[index].className = 'hover';
+                        }else{
+                            console.log(startVal);
+                            this.value = startVal;
+                        }
+                        return false;
+                    }else if (keyCode === 13){
+                        window.open('https://www.baidu.com/s?wd='+val , '_blank');
+                        this.blur();
+                    }else{
+                        startVal = val;
+                        addScript.call(this,val);
+                    }
+                }else{
+                    oList.innerHTML = '';
+                }
+            };
+            oInp.onblur = function () {
+                setTimeout(function () {
+                   oList.style.display = 'none';
+                },200);
+            };
+            oInp.onfocus = function () {
+                oList.style.display = 'block';
+                if (this.value)addScript.call(this,this.value);
+            };
+
+            function addScript(val) {
+                var oS = document.createElement('script');
+                oS.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+ val +'&cb=fly&_='+new Date().getTime();
+                document.body.appendChild(oS);
+                oS.onload = function () {
+                    document.body.removeChild(this);
+                };
+            }
+            function fly(mJson) {
+                var s = mJson.s;
+                var length = Math.min(s.length , 5);
+                oList.innerHTML = '';
+                for (var i=0;i<length;i++){
+                    var oLi = document.createElement('li');
+                    oLi.innerHTML = '<a href="https://www.baidu.com/s?wd='+ s[i] +'" target="_blank">' +s[i]+ '</a>';
+                    oLi.onmouseenter = function () {
+                        for (var j=0;j<length;j++){
+                            this.parentNode.children[j].className = '';
+                        }
+                        this.className = 'hover';
+                    };
+                    oLi.onmouseleave = function () {
+                        this.className = '';
+                    };
+                    oList.appendChild(oLi);
+                }
+            }
+        </script>
+    </body>
+</html>
