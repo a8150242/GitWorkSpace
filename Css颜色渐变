@@ -1,70 +1,63 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
-<title>线性渐变（linear-gradient）---http://www.jb51.net</title>
+    <title>线性渐变（linear-gradient）---http://www.jb51.net</title>
 
-<style type="text/css">
+    <style type="text/css">
 
-.test1
+        .test1 {
 
-{
+            height: 500px;
 
+            text-align: center;
 
+            line-height: 80px;
 
-height: 500px;
+            margin-bottom: 10px;
 
-text-align: center;
+            color: White;
 
-line-height: 80px;
+            font-size: 20px;
 
-margin-bottom: 10px;
+            filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#1d162c', endColorStr='#192430', gradientType='1');
 
-color: White;
+            background: -moz-linear-gradient(top, #1d162c, #192430);
 
-font-size: 20px;
+            background: -o-linear-gradient(top, #1d162c, #192430);
 
-filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#1d162c',endColorStr='#192430',gradientType='1');
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1d162c), to(#192430));
 
-background: -moz-linear-gradient(top, #1d162c, #192430);
+        }
 
-background: -o-linear-gradient(top,#1d162c, #192430);
+        .test2 {
 
-background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1d162c), to(#192430));
+            height: 500px;
 
-}
+            text-align: center;
 
-.test2
+            line-height: 80px;
 
-{
+            margin-bottom: 10px;
 
+            color: White;
 
+            font-size: 20px;
 
-height: 500px;
+            filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#1d162c', endColorStr='#192430', gradientType='0');
 
-text-align: center;
+            background: -moz-linear-gradient(left, #1d162c, #192430);
 
-line-height: 80px;
+            background: -o-linear-gradient(left, #1d162c, #192430);
 
-margin-bottom: 10px;
+            background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#1d162c), to(#192430));
 
-color: White;
+        }
 
-font-size: 20px;
-
-filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#1d162c',endColorStr='#192430',gradientType='0');
-
-background: -moz-linear-gradient(left, #1d162c, #192430);
-
-background: -o-linear-gradient(left,#1d162c, #192430);
-
-background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#1d162c), to(#192430));
-
-}
-
-</style>
+    </style>
 
 </head>
 
@@ -72,13 +65,13 @@ background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#1d162c), to(#192430))
 
 <div class="test1">
 
-垂直渐变
+    垂直渐变
 
 </div>
 
 <div class="test2">
 
-水平渐变
+    水平渐变
 
 </div>
 
