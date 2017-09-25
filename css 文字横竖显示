@@ -1,0 +1,82 @@
+转自http://blog.csdn.net/sangjinchao/article/details/60139706
+1.一个句子的竖向排列
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>test</title>    
+    <meta charset="UTF-8">    
+</head>    
+<style>    
+.one {    
+    width: 20px;    
+    margin: 0 auto;    
+    line-height: 24px;    
+    font-size: 20px;  
+}  
+.two {    
+    width: 15px;    
+    margin: 0 auto;    
+    line-height: 24px;    
+    font-size: 20px;    
+    word-wrap: break-word;/*英文的时候需要加上这句，自动换行*/    
+}    
+</style>    
+<body>    
+    <div class="one">我是竖列排版</div>    
+    <div class="two">I AM ENGLISH</div>    
+</body>    
+</html>    
+
+
+2.多个句子竖向排列（如古诗）
+
+[html] view plain copy
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>test</title>    
+    <meta charset="UTF-8">    
+</head>    
+<style>    
+.one {    
+    margin: 0 auto;    
+    height: 140px;    
+    writing-mode: vertical-lr;/*从左向右 从右向左是 writing-mode: vertical-rl;*/    
+    writing-mode: tb-lr;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/    
+}    
+</style>    
+<body>    
+    <div class="one">欲话毗陵君反袂，欲言夏口我沾衣。谁知临老相逢日，悲叹声多语笑稀。</div>    
+    <div class="one">I AM ENGLISH</div>  
+</body>    
+</html>   
+
+
+
+3.字体横行，整体竖向排版
+
+[html] view plain copy
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>test</title>  
+    <meta charset="UTF-8">  
+</head>  
+<style>  
+.one {  
+    margin: 150px auto;  
+    width: 200px;  
+    font-size: 20px;   
+    line-height: 24px;  
+    transform:rotate(90deg);  
+    -ms-transform:rotate(90deg);    /* IE 9 */  
+    -moz-transform:rotate(90deg);   /* Firefox */  
+    -webkit-transform:rotate(90deg); /* Safari 和 Chrome */  
+    -o-transform:rotate(90deg);     /* Opera */  
+}  
+</style>  
+<body>  
+    <div class="one">欲话毗陵君反袂</div>  
+    <div class="one">ENGLISH</div>  
+</body>  
+</html>  
